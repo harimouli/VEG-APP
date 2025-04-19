@@ -1,15 +1,16 @@
 
 
-
+import AdminDashBoard  from "./pages/adminDashboard";
 
 
 
 const App = () => {
-  return (
-    <div>
-      <h1>djf</h1>
-    </div>
-  )
+   return ( 
+    <>
+      <AdminDashBoard/>
+    </>
+   )
 }
+
 
 export default App;

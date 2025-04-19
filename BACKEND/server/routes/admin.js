@@ -74,7 +74,7 @@ adminRouter.put("/orders/:id/status", authenticateUser, authenticateAdmin, async
 
 
 
-adminRouter.post("/add/product", authenticateUser,authenticateAdmin,async (req, res) => {
+adminRouter.post("/add/product",async (req, res) => {
     const { name, price, description, imageUrl } = req.body;
     if (!name || !price || !description || !imageUrl) {
         return res.status(400).send({ message: "All fields are required" });
