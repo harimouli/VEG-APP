@@ -7,7 +7,6 @@ import {
   FaUserCircle,
   FaSignInAlt,
   FaSignOutAlt,
-  FaShoppingBag, 
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
     const userData = Cookies.get("user");
     if (userData) {
       const parsedUser = JSON.parse(userData);
-      setUser(parsedUser.name || parsedUser.email);
+      setUser(parsedUser.name || parsedUser.email); 
     }
   }, []);
 
@@ -36,22 +35,13 @@ const Navbar = () => {
     <nav className="bg-white shadow sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-xl sm:text-2xl font-bold text-green-600">
-           VegBazzer
+          🥦 VegBazzer
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-gray-700 hover:text-green-600">
             Home
           </Link>
-
-          {user && (
-            <Link
-              to="/orders"
-              className="flex items-center gap-1 text-gray-700 hover:text-green-600"
-            >
-              <FaShoppingBag /> Orders
-            </Link>
-          )}
 
           {user ? (
             <>
@@ -84,24 +74,9 @@ const Navbar = () => {
 
       {isMenuOpen && (
         <div className="md:hidden bg-white px-4 py-2 flex flex-col gap-3">
-          <Link
-            to="/"
-            onClick={toggleMenu}
-            className="text-gray-700 hover:text-green-600"
-          >
+          <Link to="/" onClick={toggleMenu} className="text-gray-700 hover:text-green-600">
             Home
           </Link>
-
-          {user && (
-            <Link
-              to="/orders"
-              onClick={toggleMenu}
-              className="flex items-center gap-2 text-gray-700 hover:text-green-600"
-            >
-              <FaShoppingBag /> Orders
-            </Link>
-          )}
-
           {user ? (
             <>
               <span className="text-gray-700 flex items-center gap-2">

@@ -23,7 +23,8 @@ commonRouter.get("/products", async (req, res) => {
 })   
 
 commonRouter.get("/products/:id",  async (req, res) => {
-    const productId = req.params;
+    const productId = req.params.id;
+    console.log(productId);
     const query  = `
         SELECT 
             *
@@ -37,7 +38,9 @@ commonRouter.get("/products/:id",  async (req, res) => {
         const result = await runPoolQuery(query, values);
         res.status(201).send(result);
     }catch(err){
-        res.send(result);
+        res.send({
+            message: "Internal Sever Error"
+        });
     }
 
 })

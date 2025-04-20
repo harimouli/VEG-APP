@@ -85,9 +85,9 @@ orderRouter.post("/order/add", authenticateUser,  async (req, res) => {
 })
 
 
-orderRouter.get("/user/orders", authenticateUser, async (req, res) => {
-    const userId = req.user.id;
-    console.log(req.user);
+orderRouter.get("/user", authenticateUser, async (req, res) => {
+    const userId = req.body.id
+    console.log(userId);
     const query = `
     SELECT 
         o.id AS order_id,
